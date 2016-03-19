@@ -1,0 +1,22 @@
+{
+	"name": "inishie-dungeon",
+	"description": "",
+	"game-version": "1.0134",
+	"last-update": "2016-3-19 14:34",
+	"points": [
+		{
+			"name": "names",
+			"file": "names.json",
+			"action": "/inishie.cgi",
+			"key": "mode=first",
+			"mode": "ex-text-replace"
+		},
+		{
+			"name": "web",
+			"file": "web.json",
+			"action": "/",
+			"key": "",
+			"mode": "regexp-replace"
+		}
+	]
+}

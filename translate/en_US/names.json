@@ -1,0 +1,6 @@
+{
+	"regexp_str": "(?:[\n=]\\d+,)(?:[^\\d,]+?)(?:,)",
+	"prefix_str": "[\n=]\\d+,",
+	"subfix_str": ",",
+	"kv_file": "names.txt"
+}
