@@ -32,6 +32,7 @@ func proxifyRequest(r *http.Request) (nr *http.Request, query string) {
 
 	}
 	nr.Header = r.Header
+	nr.Header.Del("Accept-Encoding")
 	return
 }
 

@@ -18,8 +18,8 @@ func TestCDN(path string) bool {
 		return true
 	}
 	res, err := http.Head(CDN_ADDR + path)
-	res.Body.Close()
 	if err == nil && res.StatusCode == 200 {
+		res.Body.Close()
 		util.DEBUG.Log("[CDN] ", path)
 		cdn_stat_cache[path] = true
 		return true
