@@ -25,6 +25,7 @@ func proxifyRequest(r *http.Request) (nr *http.Request, query string) {
 	nu.Scheme = "http"
 	if r.Method == "GET" {
 		nr, _ = http.NewRequest(r.Method, nu.String(), nil)
+		query, _ = url.QueryUnescape(nr.URL.RawQuery)
 	} else {
 		bin, _ := ioutil.ReadAll(r.Body)
 		query, _ = url.QueryUnescape(string(bin))

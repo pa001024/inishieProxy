@@ -75,14 +75,21 @@ func (this *ResourceInterceptor) loadPoints(ad string) {
 			this.actionMap[v.Action] = make([]TranlatePoint, 0, 3)
 		}
 		this.actionMap[v.Action] = append(this.actionMap[v.Action], v)
+		util.DEBUG.Log("[Interceptor] Load ", v.Action, " -> ", v.Name)
 	}
 }
 
 func (this *ResourceInterceptor) Process(req *http.Request, query string, buf *bytes.Buffer) {
+	util.DEBUG.Log("[Interceptor] matching ", req.URL.Path)
 	if vls, ok := this.actionMap[req.URL.Path]; ok {
 		for _, v := range vls {
-			if p, ok := this.pointMap[v.Name]; p != nil && ok {
-				if v.Key == "" || regexp.MustCompile(v.Key).MatchString(query) {
+			if p, ok := this.pointMap[v.Name]; ok {
+				if p == nil {
+					util.DEBUG.Log("[Interceptor] ", v.Name, " p == nil")
+					continue
+				}
+				util.DEBUG.Log("[Interceptor] ", v.Name, v.Key)
+				if (v.Key == "-" && query == "") || v.Key == "*" || v.Key == query || regexp.MustCompile(v.Key).MatchString(query) {
 					s := this.pointMap[v.Name].ReplaceAll(buf.String())
 					buf.Reset()
 					buf.WriteString(s)

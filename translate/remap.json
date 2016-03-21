@@ -14,9 +14,16 @@
 		{
 			"name": "web",
 			"file": "web.json",
-			"action": "/",
+			"action": "/index.cgi",
 			"key": "",
 			"mode": "regexp-replace"
-		}
+        },
+        {
+            "name": "index",
+            "file": "index.html",
+            "action": "/",
+            "key": "-",
+            "mode": "file-replace"
+        }
 	]
 }

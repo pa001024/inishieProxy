@@ -76,7 +76,6 @@ func (this *RexKVRplFilter) ReplaceAll(s string) string {
 		pre := this.preex.FindString(m)
 		sub := this.subex.FindString(m)
 		mid := m[len(pre) : len(m)-len(sub)]
-		util.DEBUG.Log("pre: ", pre, "\tmid:", mid, "\tsub: ", sub)
 		if v, ok := this.dict[mid]; ok {
 			return pre + v + sub
 		}
