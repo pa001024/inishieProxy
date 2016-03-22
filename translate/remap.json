@@ -21,7 +21,7 @@
         {
             "name": "web2",
             "file": "web2.txt",
-            "action": "index.cgi",
+            "action": "/index.cgi",
             "key": "",
             "mode": "text-replace"
         },
