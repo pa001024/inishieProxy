@@ -66,9 +66,9 @@ func inishieProxy(w http.ResponseWriter, r *http.Request) {
 func fileProxy(w http.ResponseWriter, r *http.Request) {
 	_, err := os.Stat("dist" + r.URL.Path)
 	if os.IsNotExist(err) {
-		util.WARN.Log("[Missing File] ", UPSTREAM+r.URL.Path)
 		rf, _ := http.Get(UPSTREAM + r.URL.Path)
-		if rf != nil {
+		if rf != nil && rf.StatusCode < 300 {
+			util.WARN.Log("[Missing File] ", UPSTREAM+r.URL.Path)
 			os.MkdirAll("dist"+path.Dir(r.URL.Path), 0766)
 			of, _ := os.OpenFile("dist"+r.URL.Path, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0644)
 			io.Copy(of, rf.Body)
