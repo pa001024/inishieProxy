@@ -95,6 +95,12 @@ func NewTextRplFilter(filename string) *TextRplFilter {
 	util.Try(err)
 	ex := regexp.MustCompile(`\r?\n(?:\s*\r?\n)*|=`)
 	source := ex.Split(string(bin), -1)
+	if len(source)%2 == 1 {
+		source = source[:len(source)-1]
+	}
+	for i, v := range source {
+		util.DEBUG.Log(i, v)
+	}
 	return &TextRplFilter{
 		Source:   source,
 		replacer: strings.NewReplacer(source...),

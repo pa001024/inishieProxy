@@ -89,7 +89,7 @@ func (this *ResourceInterceptor) Process(req *http.Request, query string, buf *b
 					continue
 				}
 				util.DEBUG.Log("[Interceptor] ", v.Name, v.Key)
-				if (v.Key == "-" && query == "") || v.Key == "*" || v.Key == query || regexp.MustCompile(v.Key).MatchString(query) {
+				if (v.Key == "-" && query == "") || v.Key == query || regexp.MustCompile(v.Key).MatchString(query) {
 					s := this.pointMap[v.Name].ReplaceAll(buf.String())
 					buf.Reset()
 					buf.WriteString(s)
