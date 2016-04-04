@@ -12,6 +12,13 @@
 			"mode": "ex-text-replace"
 		},
 		{
+			"name": "name-desc",
+			"file": "name-desc.txt",
+			"action": "/inishie.cgi",
+			"key": "mode=first",
+			"mode": "text-replace"
+		},
+		{
 			"name": "web",
 			"file": "web.json",
 			"action": "/index.cgi",

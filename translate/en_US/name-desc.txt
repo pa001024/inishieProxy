@@ -1,0 +1,10 @@
+HPを 50ポイント かいふく=Recover 50 HP
+HPを 200ポイント かいふく=Recover 200 HP
+MPを 50ポイント かいふく=Recover 50 MP
+MPを 200ポイント かいふく=Recover 200 MP
+じょうたいいじょうを かいふく=Recover State Effect
+HPとMPを かんぜんかいふく=Recover all HP/MP
+のむと ふろうふしになる=drink to become immortality
+ふろうふしのこうかを けしさ=remove the effect of Elixir
+わるだくみが つづられている=About Intrigue
+すがたを じざいに かえられる=changed appearance freely
