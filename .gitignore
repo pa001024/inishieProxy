@@ -1,2 +1,4 @@
 dist
 inishieProxy
+swfbuild/*.swf
+swfbuild/*.xml
